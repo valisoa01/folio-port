@@ -6,3 +6,15 @@
   --color-primary: #1F8A70;
   --color-gray: #a0a0a0;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+
+  body {
+    @apply transition-colors duration-300 ease-in-out;
+  }
+}
