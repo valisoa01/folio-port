@@ -65,24 +65,24 @@ export default function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-5 space-y-4">
+        <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-5 space-y-4 text-center">
+          <button
+            onClick={() => setIsDark(!isDark)}
+            className="flex items-center gap-3 w-full hover:text-primary bg-primary justify-center transition-colors py-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 text-[1.5rem]"
+          >
+            {isDark ? <Sun size={30} /> : <Moon size={30} />}
+            {isDark ? 'Light Mode' : 'Dark Mode'}
+          </button>
           {navItems.map(item => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="block hover:text-primary"
+              className="block hover:text-primary text-[1.5rem]"
               onClick={() => setMenuOpen(false)}
             >
               {item}
             </a>
           ))}
-          <button
-            onClick={() => setIsDark(!isDark)}
-            className="flex items-center gap-3 w-full hover:text-primary"
-          >
-            {isDark ? <Sun size={20} /> : <Moon size={20} />}
-            {isDark ? 'Light Mode' : 'Dark Mode'}
-          </button>
         </div>
       )}
     </header>
