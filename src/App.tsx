@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import Hero from './components/Hero'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       "
     >
       <Header />
-       
+      <Hero />
     </div>
   )
 }
