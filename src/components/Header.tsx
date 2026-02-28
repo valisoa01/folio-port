@@ -24,8 +24,8 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <a href="#" className="text-2xl font-bold text-primary">
+        <div className="flex items-center justify-between h-[8vh]">
+          <a href="#" className="text-2xl font-bold text-primary   ml-[-14vw]">
             Valisoa
           </a>
 
