@@ -1,3 +1,4 @@
+import Contact from './components/Contact'
 import Header from './components/Header'
 import Hero from './components/Hero'
 
@@ -12,6 +13,7 @@ function App() {
     >
       <Header />
       <Hero />
+      <Contact/>
     </div>
   )
 }
