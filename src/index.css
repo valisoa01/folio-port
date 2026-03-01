@@ -1,20 +1,32 @@
+
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@source inline(
+  "from-amber-400", "to-orange-500",
+  "from-yellow-400", "to-amber-500",
+  "from-cyan-400", "to-blue-500",
+  "from-green-400", "to-emerald-500",
+  "from-purple-500", "to-indigo-600",
+  "from-gray-600", "to-gray-800",
+  "from-violet-500", "to-purple-600",
+  "bg-gradient-to-r"
+);
+
+ @custom-variant dark (&:where(.dark, .dark *));
 
  @theme {
   --color-primary: #1F8A70;
   --color-gray: #a0a0a0;
 }
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-@layer base {
+ @layer base {
   html {
     @apply transition-colors duration-300 ease-in-out;
   }
+}
 
-  body {
-    @apply transition-colors duration-300 ease-in-out;
+ @layer utilities {
+  .animate-fill {
+    transform: scaleX(1) !important;
   }
 }
