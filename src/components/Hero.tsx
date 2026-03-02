@@ -1,4 +1,3 @@
-// src/components/Hero.tsx
 import { useEffect, useRef } from 'react';
 import Photo from '../assets/photo-valisoa.jpeg';
 import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';

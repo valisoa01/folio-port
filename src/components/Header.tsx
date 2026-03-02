@@ -29,7 +29,7 @@ export default function Header() {
             Valisoa
           </a>
 
-          {/* Desktop */}
+          
           <div className="hidden md:flex items-center gap-8">
             <nav className="flex gap-6 text-sm font-medium">
               {navItems.map(item => (
@@ -52,7 +52,7 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Mobile burger */}
+    
           <button
             className="md:hidden p-2"
             onClick={() => setMenuOpen(!menuOpen)}
@@ -63,7 +63,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Mobile menu */}
+  
       {menuOpen && (
         <div className="md:hidden border-t border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 px-4 py-5 space-y-4 text-center">
           <button
