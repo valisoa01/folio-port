@@ -29,4 +29,13 @@
   .animate-fill {
     transform: scaleX(1) !important;
   }
+.test-animate {
+  @apply scale-X-0;
+  animation: fillTest 3s forward;
+}
+@Keyframe fillTest {
+  to{
+    transform : scaleX(1);
+  }
+}
 }
