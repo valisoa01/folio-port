@@ -14,8 +14,8 @@ function App() {
     >
       <Header />
       <Hero />
-      <Contact/>
       <Skills />
+      <Contact/>
     </div>
   )
 }

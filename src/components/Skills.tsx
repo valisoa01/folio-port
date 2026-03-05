@@ -1,134 +1,101 @@
-import { useEffect, useRef } from 'react';
-import { MapPin } from 'lucide-react';
+// src/components/Skills.tsx
+import { Code, Database, Server, Terminal, GitBranch, Coffee, Cpu, Globe, Zap, Layers, FileText} from 'lucide-react';
 
-interface Skill {
-  name: string;
-  level: 'Avancé' | 'Intermédiaire';
-  barClass: string; 
-}
-
-const frontendSkills: Skill[] = [
-  {
-    name: 'HTML / CSS / Tailwind / Bootstrap',
-    level: 'Avancé',
-    barClass: 'bg-gradient-to-r from-amber-400 to-orange-500 w-[90%]',
-  },
-  {
-    name: 'JavaScript',
-    level: 'Intermédiaire',
-    barClass: 'bg-gradient-to-r from-yellow-400 to-amber-500 w-[70%]',
-  },
-  {
-    name: 'React',
-    level: 'Avancé',
-    barClass: 'bg-gradient-to-r from-cyan-400 to-blue-500 w-[95%]',
-  },
-  {
-    name: 'Node.js',
-    level: 'Intermédiaire',
-    barClass: 'bg-gradient-to-r from-green-400 to-emerald-500 w-[65%]',
-  },
-];
-
-const otherSkills: Skill[] = [
-  {
-    name: 'Java',
-    level: 'Intermédiaire',
-    barClass: 'bg-gradient-to-r from-purple-500 to-indigo-600 w-[60%]',
-  },
-  {
-    name: 'Git',
-    level: 'Avancé',
-    barClass: 'bg-gradient-to-r from-gray-600 to-gray-800 w-[90%]',
-  },
-  {
-    name: 'PostgreSQL',
-    level: 'Avancé',
-    barClass: 'bg-gradient-to-r from-violet-500 to-purple-600 w-[92%]',
-  },
-];
+const skills = [
+  { name: 'HTML5', icon: Globe, color: 'text-orange-500' },
+  { name: 'CSS3', icon: Layers, color: 'text-blue-400' },
+  { name: 'JavaScript', icon: Code, color: 'text-yellow-400' },
+  { name: 'TypeScript', icon: FileText, color: 'text-blue-500' },
+  { name: 'React', icon: Zap, color: 'text-cyan-400' },
+  { name: 'Node.js', icon: Server, color: 'text-green-500' },
+  { name: 'Express.js', icon: Terminal, color: 'text-gray-300' },
+  { name: 'Java', icon: Coffee, color: 'text-red-500' },
+  { name: 'C++', icon: Cpu, color: 'text-yellow-500' },
+   { name: 'PostgreSQL', icon: Database, color: 'text-blue-600' },
+  { name: 'Tailwind CSS', icon: Layers, color: 'text-teal-400' },
+  { name: 'Git', icon: GitBranch, color: 'text-orange-600' },
+  { name: 'Prisma', icon: Database, color: 'text-indigo-400' },
+  { name: 'Linux', icon: Terminal, color: 'text-gray-400' },
+  { name : 'Bootstrap', icon: Layers, color: 'text-purple-400' },
+ ];
 
 export default function Skills() {
-  const progressRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fill');
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    progressRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
       id="skills"
-      className="py-20 md:py-32 bg-zinc-50 dark:bg-zinc-950 transition-colors duration-500"
+      className="
+        relative py-20 md:py-32
+        bg-gradient-to-b from-zinc-950 to-black
+        dark:from-black dark:to-zinc-950
+        overflow-hidden
+      "
     >
-      <div className="max-w-6xl mx-auto px-6">
-         <div className="flex items-center justify-center gap-3 mb-12 md:mb-16">
-          <MapPin className="w-8 h-8 md:w-10 md:h-10 text-[#1F8A70]" />
-          <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-zinc-100">
-            Mes <span className="text-[#1F8A70]">Compétences</span>
+       <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,#1F8A7030_0%,transparent_50%)] animate-pulse-slow" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,#1F8A7030_0%,transparent_50%)] animate-pulse-slow delay-1000" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6">
+         <div className="text-center mb-16 md:mb-20">
+          <h2 className="
+            text-4xl sm:text-5xl md:text-6xl font-bold
+            bg-gradient-to-r from-[#1F8A70] via-teal-400 to-cyan-400
+            bg-clip-text text-transparent
+            tracking-tight
+          ">
+            My Skills
           </h2>
+          <p className="
+            mt-4 text-lg md:text-xl text-zinc-400
+            max-w-3xl mx-auto
+          ">
+            Technologies and tools I use to bring ideas to life
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
-           <div className="space-y-10">
-            <h3 className="text-2xl font-semibold text-center md:text-left text-zinc-800 dark:text-zinc-200">
-              Frontend & Web
-            </h3>
-            <div className="space-y-8">
-              {frontendSkills.map((skill, idx) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                    <span>{skill.name}</span>
-                    <span>{skill.level}</span>
-                  </div>
-                  <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-                    <div
-                      ref={(el) => (progressRefs.current[idx] = el)}
-                      className={`h-full ${skill.barClass} rounded-full origin-left scale-x-0 transition-transform duration-1500 ease-out`}
-                      style={{ transformOrigin: 'left' }}
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+         <div className="
+          grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5
+          gap-4 sm:gap-6 md:gap-8
+        ">
+          {skills.map((skill) => {
+            const Icon = skill.icon;
+            return (
+              <div
+                key={skill.name}
+                className="
+                  group relative
+                  bg-zinc-900/70 backdrop-blur-md
+                  border border-zinc-800/50
+                  rounded-xl p-6
+                  hover:border-[#1F8A70]/50
+                  hover:shadow-[0_0_25px_rgba(31,138,112,0.25)]
+                  transition-all duration-300
+                  hover:-translate-y-1.5
+                  overflow-hidden
+                "
+              >
+                 <div className="
+                  absolute inset-0
+                  bg-gradient-to-br from-[#1F8A70]/10 to-transparent
+                  opacity-0 group-hover:opacity-100
+                  transition-opacity duration-500
+                " />
 
-           <div className="space-y-10">
-            <h3 className="text-2xl font-semibold text-center md:text-left text-zinc-800 dark:text-zinc-200">
-              Autres Technologies
-            </h3>
-            <div className="space-y-8">
-              {otherSkills.map((skill, idx) => (
-                <div key={skill.name} className="space-y-2">
-                  <div className="flex justify-between text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                    <span>{skill.name}</span>
-                    <span>{skill.level}</span>
-                  </div>
-                  <div className="h-4 bg-zinc-200 dark:bg-zinc-800 rounded-full overflow-hidden">
-                    <div
-                      ref={(el) => (progressRefs.current[idx + frontendSkills.length] = el)}
-                      className={`h-full ${skill.barClass} rounded-full origin-left scale-x-0 transition-transform duration-1500 ease-out`}
-                      style={{ transformOrigin: 'left' }}
-                    />
-                  </div>
+                <div className="relative z-10 flex flex-col items-center text-center">
+                  <Icon
+                    className={`w-10 h-10 md:w-12 md:h-12 mb-4 ${skill.color}`}
+                  />
+                  <span className="
+                    text-base md:text-lg font-medium
+                    text-zinc-200 group-hover:text-white
+                    transition-colors duration-300
+                  ">
+                    {skill.name}
+                  </span>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
