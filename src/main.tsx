@@ -1,4 +1,3 @@
-// src/main.tsx
 import './index.css'   // ← doit être là, avant tout
 import React from 'react'
 import ReactDOM from 'react-dom/client'
